@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="180dp">
+
+    <ImageView
+        android:src="@drawable/wolken"
+        android:scaleType="centerCrop"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Stand: 18.09.2015 03:40"
+        android:id="@+id/headerTextSmall"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textStation" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Salzgitter Üfingen"
+        android:id="@+id/headerTextStation"
+        android:layout_above="@+id/headerTextSmall"
+        android:layout_toEndOf="@+id/textStation" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Station:"
+        android:id="@+id/textStation"
+        android:layout_marginStart="23dp"
+        android:layout_above="@+id/headerTextStation"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="WeeWx Wetter"
+        android:id="@+id/headerTextTitel"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textStation"
+        android:layout_marginTop="29dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@drawable/ic_action_place"
+        android:layout_above="@+id/headerTextSmall"
+        android:layout_alignStart="@+id/headerTextSmall"
+        android:layout_toStartOf="@+id/headerTextStation"
+        android:layout_below="@+id/textStation"
+        android:layout_alignEnd="@+id/textStation" />
+</RelativeLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single"
+        >
+
+        <item
+            android:id="@+id/drawerItemView1"
+            android:title="Aktuell"
+            android:icon="@drawable/ic_action_place"
+            />
+
+        <item
+            android:id="@+id/drawerItemView2"
+            android:title="Woche"
+            android:icon="@drawable/ic_action_place"
+            />
+
+        <item
+            android:id="@+id/drawerItemView3"
+            android:title="Jahr"
+            android:icon="@drawable/ic_action_place"
+            />
+
+    </group>
+
+</menu>
