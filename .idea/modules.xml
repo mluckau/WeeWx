@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/WetterWidget.iml" filepath="$PROJECT_DIR$/WetterWidget.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WeeWx.iml" filepath="$PROJECT_DIR$/WeeWx.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
