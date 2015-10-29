@@ -14,15 +14,21 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     Toolbar toolbar;
 
@@ -36,10 +42,16 @@ public class MainActivity extends AppCompatActivity {
     MenuItem progress_menu_item;
     /* Progressbutton ende */
 
+    private TextView name, zeit, temp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        name = (TextView) findViewById(R.id.stationName);
+        zeit = (TextView) findViewById(R.id.stationZeit);
+        temp = (TextView) findViewById(R.id.stationTemp);
 
         /* Hintergrundprozess start */
         AlarmManager updateService = (AlarmManager) MainActivity.this.getSystemService(MainActivity.this.ALARM_SERVICE);
@@ -132,6 +144,28 @@ public class MainActivity extends AppCompatActivity {
               *
               * */
 
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        final StationData weather = StationUtils.getWeather();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                name.setText(weather.name);
+                                zeit.setText(weather.zeit);
+                                temp.setText(weather.currentTemp);
+                            }
+                        });
+
+                        /* IOException, MalformedURLException, JSONException */
+
+                    } catch (Exception e) {
+                        Log.e(TAG, "getWeather()", e);
+                    }
+                }
+            }).start();
+            progress_menu_item.setActionView(null);
             return true;
         }
 

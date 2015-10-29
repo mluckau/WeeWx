@@ -40,6 +40,35 @@
                 android:layout_centerHorizontal="true"
                 android:id="@+id/textView3" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/stationName"
+                android:layout_below="@+id/toolbar1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="26dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/stationZeit"
+                android:layout_below="@+id/stationName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="26dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/stationTemp"
+                android:layout_below="@+id/stationZeit"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="34dp" />
 
 
         </RelativeLayout>

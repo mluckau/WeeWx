@@ -3,6 +3,7 @@
     package="de.interitus.michael.wetterwidget" >
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
