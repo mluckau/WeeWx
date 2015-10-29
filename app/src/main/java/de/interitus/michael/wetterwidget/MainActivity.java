@@ -3,6 +3,7 @@ package de.interitus.michael.wetterwidget;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     MenuItem progress_menu_item;
     /* Progressbutton ende */
 
-    private TextView name, zeit, temp;
+    private TextView name, zeit, temp, widgetName, widgetZeit, widgetTemp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         name = (TextView) findViewById(R.id.stationName);
         zeit = (TextView) findViewById(R.id.stationZeit);
         temp = (TextView) findViewById(R.id.stationTemp);
+        widgetName = (TextView) findViewById(R.id.widget_stationName);
+        widgetZeit = (TextView) findViewById(R.id.widget_stationZeit);
+        widgetTemp = (TextView) findViewById(R.id.widget_stationTemp);
 
         /* Hintergrundprozess start */
         AlarmManager updateService = (AlarmManager) MainActivity.this.getSystemService(MainActivity.this.ALARM_SERVICE);
@@ -155,8 +159,19 @@ public class MainActivity extends AppCompatActivity {
                                 name.setText(weather.name);
                                 zeit.setText(weather.zeit);
                                 temp.setText(weather.currentTemp);
+                                Intent intentSendTextToWidget = new Intent(MainActivity.this, WidgetProvider.class);
+                                intentSendTextToWidget.setAction(AppWidgetManager.EXTRA_CUSTOM_EXTRAS);
+                                intentSendTextToWidget.putExtra("WIDGETZEIT", weather.zeit);
+                                intentSendTextToWidget.putExtra("WIDGETNAME", weather.name);
+                                intentSendTextToWidget.putExtra("WIDGETTEMP", weather.currentTemp);
+                                sendBroadcast(intentSendTextToWidget);
+                                progress_menu_item.setActionView(null);
+
+
                             }
                         });
+
+
 
                         /* IOException, MalformedURLException, JSONException */
 
@@ -165,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }).start();
-            progress_menu_item.setActionView(null);
+
             return true;
         }
 

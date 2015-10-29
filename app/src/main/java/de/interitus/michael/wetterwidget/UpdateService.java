@@ -16,6 +16,8 @@ public class UpdateService extends Service {
 
         /* Todo: JSON Parsen */
 
+
+
         Log.d("WeeWxUpdateService", "WeeWx Wetterdaten aktualisiert!");
         stopSelf();
 
